@@ -1,4 +1,5 @@
 ﻿﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -7,7 +8,13 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private Material defaultMaterial;
 
     private Transform _selection;
-    
+
+    private void Awake()
+    {
+        SceneManager.LoadScene("Environment", LoadSceneMode.Additive);
+        SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+    }
+
     private void Update()
     {
         if (_selection != null)
